@@ -37,6 +37,10 @@ void serial::system_init()
 //    //停止位
 //    global_port.setStopBits(QSerialPort::OneStop);
 
+    // 禁止最大化按钮
+    setWindowFlags(windowFlags()&~Qt::WindowMaximizeButtonHint);
+    // 禁止拖动窗口大小
+    setFixedSize(this->width(),this->height());
     //按钮执行事件绑定  connect(信号发出者地址，发什么信号，在那个类触发，触发事件)
     //打开串口绑定
     connect(ui->btn_on,&QPushButton::clicked,this,&serial::btn_on_port);
